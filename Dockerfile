@@ -27,8 +27,7 @@ ENV TOMCAT_TGZ_URL http://mirror.bit.edu.cn/apache/tomcat/tomcat-$TOMCAT_MAJOR/v
 RUN set -x \
 	&& wget "$TOMCAT_TGZ_URL" \
 	&& tar -xvf apache-tomcat-$TOMCAT_VERSION.tar.gz  \
-	&& rm bin/*.bat \
-	&& rm tomcat.tar.gz*
+	&& rm apache-tomcat-$TOMCAT_VERSION.tar.gz*
 
 EXPOSE 8080
 
