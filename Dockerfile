@@ -26,7 +26,7 @@ ENV TOMCAT_VERSION 7.0.65
 ENV TOMCAT_TGZ_URL http://mirror.bit.edu.cn/apache/tomcat/tomcat-$TOMCAT_MAJOR/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
 RUN set -x \
 	&& wget "$TOMCAT_TGZ_URL" \
-	&& tar -xvf tomcat.tar.gz --strip-components=1 \
+	&& tar -xvf apache-tomcat-$TOMCAT_VERSION.tar.gz  \
 	&& rm bin/*.bat \
 	&& rm tomcat.tar.gz*
 
