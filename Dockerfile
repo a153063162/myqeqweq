@@ -36,8 +36,8 @@ ENV MAVEN_MAJOR 3
 ENV MAVEN_VERSION 3.3.9
 ENV MAVEN_URL http://mirror.bit.edu.cn/apache/maven/maven-$MAVEN_MAJOR/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz
 RUN wget "$MAVEN_URL"\
-    &&mkdir maven
-    &&tar -xvf apache-maven-$MAVEN_VERSION-bin.tar.gz -C maven
+    && mkdir maven\
+    && tar -xvf apache-maven-$MAVEN_VERSION-bin.tar.gz -C maven
     
 
 CMD ["catalina.sh", "run"]
