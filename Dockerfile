@@ -1,7 +1,8 @@
 FROM java:7-jre
 
 ENV CATALINA_HOME /usr/local/tomcat
-ENV PATH $CATALINA_HOME/bin:$PATH
+ENV MAVEN_HOME /usr/local/maven
+ENV PATH $CATALINA_HOME/bin:MAVEN_HOME/bin:$PATH
 RUN mkdir -p "$CATALINA_HOME"
 WORKDIR $CATALINA_HOME
 
@@ -31,6 +32,12 @@ RUN set -x \
 
 EXPOSE 8080
 
-RUN apt-get install maven
+ENV MAVEN_MAJOR 3
+ENV MAVEN_VERSION 3.3.9
+ENV MAVEN_URL http://mirror.bit.edu.cn/apache/maven/maven-$MAVEN_MAJOR/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz
+RUN wget "$MAVEN_URL"\
+    &&mkdir maven
+    &&tar -xvf apache-maven-$MAVEN_VERSION-bin.tar.gz -C maven
+    
 
 CMD ["catalina.sh", "run"]
