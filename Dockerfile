@@ -1,1 +1,2 @@
+FROM UBUNTU
 CMD ECHO hello world
