@@ -12,7 +12,7 @@ ENV TOMCAT_TGZ_URL http://mirror.bit.edu.cn/apache/tomcat/tomcat-$TOMCAT_MAJOR/v
 RUN set -x \
 	&& wget "$TOMCAT_TGZ_URL" \
 	&& tar -xvf apache-tomcat-$TOMCAT_VERSION.tar.gz  \
-	&& mv apache-tomcat-$TOMCAT_VERSION tomcat
+	&& mv apache-tomcat-$TOMCAT_VERSION tomcat \
 	&& rm apache-tomcat-$TOMCAT_VERSION.tar.gz*
 
 EXPOSE 8080
@@ -21,7 +21,6 @@ ENV MAVEN_MAJOR 3
 ENV MAVEN_VERSION 3.3.9
 ENV MAVEN_URL http://mirror.bit.edu.cn/apache/maven/maven-$MAVEN_MAJOR/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz
 RUN wget "$MAVEN_URL"\
-    && mkdir maven\
     && tar -xvf apache-maven-$MAVEN_VERSION-bin.tar.gz \
     && mv apache-maven-$MAVEN_VERSION maven
     
